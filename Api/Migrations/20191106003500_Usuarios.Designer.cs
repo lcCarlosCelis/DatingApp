@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191105211200_Usuarios")]
+    [Migration("20191106003500_Usuarios")]
     partial class Usuarios
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,8 @@ namespace Api.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Descripcion");
+
+                    b.Property<bool>("EsMain");
 
                     b.Property<string>("PublicId");
 

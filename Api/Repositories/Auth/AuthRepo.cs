@@ -90,9 +90,10 @@ namespace Api.Repositories.Auth
             dataContext.SaveChanges();
             Foto defFoto = new Foto(){
                 Descripcion = "Foto por defecto",
-                Url = "https://res.cloudinary.com/lccarloscelis/image/upload/v1572991126/barney_ocv7ol.jpg",
-                PublicId = "barney_ocv7ol",
-                Usuario = usuario
+                Url = "https://res.cloudinary.com/lccarloscelis/image/upload/c_crop,h_500,w_500/v1573004529/58_y4dcnc.jpg",
+                PublicId = "58_y4dcnc",
+                Usuario = usuario,
+                EsMain = true
             };
             dataContext.Fotos.Add(defFoto);
             dataContext.SaveChanges();

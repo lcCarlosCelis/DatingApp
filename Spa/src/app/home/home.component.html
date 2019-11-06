@@ -47,9 +47,9 @@ body {
 <main  role="main" class="flex-shrink-0 text-center" style="margin-top: 100px;">
         <div class="container" *ngIf="!toogleRegister">
           <h1 class="mt-5">Join this DatingApp</h1>
-          <p class="lead">Desarrollado usando .NET Core, Angular y PostgresQL</p>
-        <button type="button" class="btn btn-light mr-3">Informacion</button>
-        <button type="button" class="btn btn-dark" (click)="cambiarRegister()" >Registrarse</button>
+          <p class="lead">Desarrollado usando .NET Core, Angular y PostgreSQL</p>
+          <button type="button" class="btn btn-info mr-4">Informacion</button>
+        <button type="button" class="btn bg-primary" style="color: white;" (click)="cambiarRegister()" >Registrarse</button>
         </div>
 <form class="form-signin" #registerForm="ngForm" *ngIf="toogleRegister" (ngSubmit)="register(registerForm)">
     <h1 class="h3 mb-3 font-weight-normal">Coloque sus datos</h1>

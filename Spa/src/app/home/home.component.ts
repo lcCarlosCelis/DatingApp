@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { register } from '../_models/register';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +11,8 @@ import { AuthService } from '../_services/auth.service';
   styles: []
 })
 export class HomeComponent implements OnInit {
+  helper = new JwtHelperService();
+  isLoggedin: boolean;
   toogleRegister: boolean = false;
   usuarioRegistrar: register = {
     usuario: '',
@@ -16,10 +20,12 @@ export class HomeComponent implements OnInit {
     clave: '',
     nombre: ''
   };
-  constructor(private myService: AuthService) { }
+  constructor(private myService: AuthService, private myToastr: ToastrService) { }
 
   ngOnInit() {
+    
   }
+
 
   cambiarRegister() {
     this.toogleRegister = !this.toogleRegister;
@@ -27,8 +33,8 @@ export class HomeComponent implements OnInit {
 
   register(myForm: NgForm) {
     return this.myService.register(this.usuarioRegistrar).subscribe(
-      () => { myForm.reset(); }
-    ), error => { console.log('Error'); };
+      () => { myForm.reset(); this.myToastr.success('Registro Ok'); }
+    ), error => { this.myToastr.error('Ya existe usuario'); };
   }
 
 }

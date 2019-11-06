@@ -26,6 +26,8 @@ namespace Api.Migrations
 
                     b.Property<string>("Descripcion");
 
+                    b.Property<bool>("EsMain");
+
                     b.Property<string>("PublicId");
 
                     b.Property<string>("Url");

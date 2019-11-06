@@ -5,11 +5,12 @@ import { map } from 'rxjs/operators';
 import { login } from '../_models/login';
 import { token } from '../_models/token';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  
   constructor(private myHttp: HttpClient) { }
   baseUrl = "http://localhost:5000/api/auth"
 
@@ -29,3 +30,4 @@ export class AuthService {
     );
   }
 }
+

@@ -11,15 +11,28 @@ button {
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Inicio</a>
+          <a class="nav-link" [routerLink]="['/user']" routerLinkActive="active">Usuarios</a>
         </li>
       </ul>
-      <form class="form-inline mt-2 mt-md-0" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <form *ngIf="!estaLoggeado" class="form-inline mt-2 mt-md-0" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <input class="form-control mr-sm-2" name="usuario" [(ngModel)]="loginUsuario.usuario"
           type="text" placeholder="Usuario">
         <input class="form-control mr-sm-2" name="clave" [(ngModel)]="loginUsuario.clave"
           type="password" placeholder="Clave">
         <button class="btn btn-outline-success bg-success" type="submit">Ingresar</button>
       </form>
+    <form *ngIf="estaLoggeado" class="form-inline mt-2 mt-md-0">
+        <div class="btn-group" style="margin-right: 120px;" dropdown>
+            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                    aria-controls="dropdown-basic">
+              Bienvenido {{ username }} <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                role="menu" aria-labelledby="button-basic">
+              <li role="menuitem"><a class="dropdown-item" (click)="cerrar()">Cerrar Sesion</a></li>
+              <li role="menuitem"><a class="dropdown-item" (click)="cerrar()">Editar Perfil</a></li>
+            </ul>
+          </div>
+    </form>
     </div>
 </nav>

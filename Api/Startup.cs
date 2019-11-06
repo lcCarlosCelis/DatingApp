@@ -1,5 +1,6 @@
 ﻿using Api.Data;
 using Api.Repositories.Auth;
+using Api.Repositories.User;
 using Api.Repositories.Values;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -25,6 +26,7 @@ namespace Api
         {
             services.AddScoped<IValuesRepo, ValuesRepo>();
             services.AddScoped<IAuthRepo, AuthRepo>();
+            services.AddScoped<IUserRepo, UserRepo>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<DataContext>(x => x.UseNpgsql(
                 Configuration.GetConnectionString("DefaultConnection")));

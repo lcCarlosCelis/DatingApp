@@ -6,6 +6,7 @@ namespace Api.Models
         public string Descripcion { get; set; }
         public string Url { get; set; }
         public string PublicId { get; set; }
+        public bool EsMain { get; set; }
         public Usuario Usuario { get; set; }
     }
 }

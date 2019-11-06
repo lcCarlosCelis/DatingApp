@@ -34,6 +34,7 @@ namespace Api.Migrations
                     Descripcion = table.Column<string>(nullable: true),
                     Url = table.Column<string>(nullable: true),
                     PublicId = table.Column<string>(nullable: true),
+                    EsMain = table.Column<bool>(nullable: false),
                     UsuarioCedula = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

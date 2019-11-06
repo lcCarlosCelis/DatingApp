@@ -1,0 +1,14 @@
+<div style="margin-top: 60px;" class="container">
+    <div class="row">
+        <div *ngFor="let user of usersList" class="col-lg-2 col-md-3 col-sm-6">
+            <div class="class mb-4">
+                <div class="card-img-wrapper">
+                    <img class="card-img-top" src="{{ user.url }}" alt="Foto">
+                </div>
+                <div class="card-body p-1">
+                    <h6 class="card-title text-center mb-1">{{ user.nombreCompleto }}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
